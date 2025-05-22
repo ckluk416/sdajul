@@ -1,5 +1,6 @@
-# TugBes-SDA
+# Program Hidrolisis Garam
 ditujukan untuk memenuhi tugas mata kuliah struktur data dan algoritma
+
 ```mermaid
     flowchart TD
     A(["START"]) --> B["Load Data"]
