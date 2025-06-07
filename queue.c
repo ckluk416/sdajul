@@ -55,3 +55,10 @@ void print_queue(Queue *q){
         count++;
     }
 }
+
+void free_queue(Queue *q) {
+    while (!is_queue_empty(q)) {
+        char *process = dequeue_process(q);
+        free(process);
+    }
+}
