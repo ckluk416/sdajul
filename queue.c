@@ -20,3 +20,38 @@ void enqueue_process(Queue *q, const char *process){
     }
 }
 
+char *dequeue_process(Queue *q){
+    if(q->front == NULL) return NULL;
+
+    QueueNode *temp = q->front;
+    char *process = strdup(temp->process);
+    q->front = q->front->next;
+
+    if(q->front == NULL){
+        q->rear = NULL;
+    }
+
+    free(temp);
+    return process;
+}
+
+int is_queue_empty(Queue *q){
+    return q->front == NULL;
+}
+
+void print_queue(Queue *q){
+    printf("\n=== PROCESS QUEUE ===\n");
+    QueueNode *current = q->front;
+    int count = 1;
+
+    if(current == NULL){
+        printf("tidak ada proses dalam queue.\n");
+        return;
+    }
+
+    while(current != NULL){
+        printf("%d. %s\n", count, current->process);
+        current = current->next;
+        count++;
+    }
+}
