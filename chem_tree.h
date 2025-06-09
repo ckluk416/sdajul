@@ -11,6 +11,9 @@ typedef struct TreeNode {
 } TreeNode;
 
 // Function prototype interface
-
+TreeNode* create_tree_node(Element elem);
+TreeNode* insert_to_tree(TreeNode* root, Element elem);
+Element* search_element(TreeNode* root, int atomic_number);
+void build_periodic_tree(TreeNode** root, Element* table, int count);
 
 #endif
