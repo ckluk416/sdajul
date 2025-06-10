@@ -15,7 +15,14 @@ typedef struct Salt {
     Ion anion;
     char formula[20];
     struct Salt* next;
-} Salt;
+} Salt; 
+
+// Struct SaltList untuk nyimpen list garam
+typedef struct SaltList {
+    Salt* head;
+    Salt* tail;
+    int count;
+} SaltList;
 
 // Function prototypes interface
 Salt* create_salt(const char* name, const char* cation, int cat_charge, 
@@ -26,5 +33,7 @@ void print_salts(Salt* salt_list); //print semua garam
 void read_salts_from_file(Salt** salt_list, const char* filename); //read garam dari file
 void free_salt_list(Salt* salt_list);//dealloc memori list garam
 
+// Function about salt list
+SaltList* create_salt_list();
 
 #endif
