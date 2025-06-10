@@ -36,4 +36,10 @@ void free_salt_list(Salt* salt_list);//dealloc memori list garam
 // Function about salt list
 SaltList* create_salt_list();
 
+//error handling
+typedef enum {
+    SALT_SUCCESS,
+    SALT_NULL_POINTER,
+} SaltResult;
+
 #endif
