@@ -23,7 +23,7 @@ Element* search_by_atmnumb(int atomic_number);
 Element* search_by_name(char* name);
 
 
-void build_periodic_tree(TreeNode** root, Element* table, int count);
+void build_periodic_tree(TreeNode** tree_by_atomic, TreeNode** tree_by_name, const Element* table, int count);
 void process_inorder(TreeNode* root);
 void print_tree_table(TreeNode* root);
 void free_tree(TreeNode* root);
