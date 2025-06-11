@@ -3,6 +3,7 @@
 
 #include "element.h"
 
+
 // Struct for tabel priodik storage
 typedef struct TreeNode {
     Element data;
@@ -10,11 +11,18 @@ typedef struct TreeNode {
     struct TreeNode* right;
 } TreeNode;
 
+// Function pointer untuk comparator
+typedef int (*CompareFunc)(const Element*, const Element*);
+
 // Function prototype interface
 TreeNode* create_tree_node(Element elem);
-TreeNode* insert_to_tree(TreeNode* root, Element elem);
-Element* search_by_atmnumb(TreeNode* root, int atomic_number);
-Element* search_by_name(TreeNode* root, char* name);
+TreeNode* insert_to_tree(TreeNode* root, Element elem, CompareFunc compare);
+Element* search_element(TreeNode* root, void* key, CompareFunc compare);
+// Buld 2 different tree based on the atomic number/name
+Element* search_by_atmnumb(int atomic_number);
+Element* search_by_name(char* name);
+
+
 void build_periodic_tree(TreeNode** root, Element* table, int count);
 void process_inorder(TreeNode* root);
 void print_tree_table(TreeNode* root);
