@@ -46,27 +46,16 @@ Salt *create_salt(const char *name, const char *cation, int cat_charge, const ch
     return new_salt;
 }
 
-
-
-// ==================== SALT LIST OPERATIONS ====================
-
-SaltList* create_salt_list() {
-    SaltList* list = (SaltList*)malloc(sizeof(SaltList));
-    if (!list) return NULL;
-    list->head = NULL;
-    list->tail = NULL;
-    list->count = 0;
-    return list;
-}
-
-int add_salt_to_list(SaltList* list, Salt* salt) {
-    if (!list || !salt) return SALT_NULL_POINTER;
-    if (!list->head) {
-        list->head = list->tail = salt;
+void add_salt(Salt* new_salt) {
+    if (salt_list == NULL) {
+        salt_list = new_salt;
     } else {
-        list->tail->next = salt;
-        list->tail = salt;
+        Salt* current = salt_list;
+        while (current->next != NULL) {
+            current = current->next;
+        }
+        current->next = new_salt;
     }
-    list->count++;
-    return SALT_SUCCESS;
 }
+
+
