@@ -17,13 +17,6 @@ typedef struct Salt {
     struct Salt* next;
 } Salt; 
 
-// Struct SaltList untuk nyimpen list garam
-typedef struct SaltList {
-    Salt* head;
-    Salt* tail;
-    int count;
-} SaltList;
-
 // Function prototypes interface
 Salt* create_salt(const char* name, const char* cation, int cat_charge, 
                  const char* anion, int an_charge); //buat garam baru
@@ -33,13 +26,6 @@ void print_salts(Salt* salt_list); //print semua garam
 void read_salts_from_file(Salt** salt_list, const char* filename); //read garam dari file
 void free_salt_list(Salt* salt_list);//dealloc memori list garam
 
-// Function about salt list
-SaltList* create_salt_list();
 
-//error handling
-typedef enum {
-    SALT_SUCCESS,
-    SALT_NULL_POINTER,
-} SaltResult;
 
 #endif
