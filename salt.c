@@ -46,14 +46,14 @@ Salt *create_salt(const char *name, const char *cation, int cat_charge, const ch
     return new_salt;
 }
 
-void add_salt(Salt* new_salt) {
-    if (salt_list == NULL) {
-        salt_list = new_salt;
+// Add Salt to linked list
+void add_salt(Salt** salt_list, Salt* new_salt) {
+    if (*salt_list == NULL) {
+        *salt_list = new_salt;
     } else {
-        Salt* current = salt_list;
-        while (current->next != NULL) {
+        Salt* current = *salt_list;
+        while (current->next != NULL)
             current = current->next;
-        }
         current->next = new_salt;
     }
 }
