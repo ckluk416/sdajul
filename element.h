@@ -17,9 +17,9 @@ typedef struct Element {
     char oxidation_states[50];
 } Element;
 
-// Function prototypes interface
-void init_periodic_table_from_file(Element* table, int* count, const char* filename);
-Element* search_by_symbol(Element* table, int count, char* symbol);
-void print_element(const Element* elem);
+//modul
+void init_periodic_table_from_file(Element* table, int* count, const char* filename); //untuk inisasialisasi tabel periodik dari file
+Element* search_by_symbol(Element* table, int count, char* symbol); //untuk menari elemen berdasarkan simbol
+void print_element(const Element* elem); //untuk mencetak info elemen
 
 #endif
