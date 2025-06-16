@@ -33,3 +33,10 @@ Element* search_element(TreeNode* root, int atomic_number) {
     else
         return search_element(root->right, atomic_number);
 }
+
+// Build tree from table
+void build_periodic_tree(TreeNode** root, Element* table, int count) {
+    for (int i = 0; i < count; i++) {
+        *root = insert_to_tree(*root, table[i]);
+    }
+}
