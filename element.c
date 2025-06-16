@@ -53,3 +53,14 @@ void init_periodic_table_from_file(Element *table, int *count, const char *filen
     }
     fclose(file);
 }
+
+void print_element(const Element *elem){
+    if(!elem){
+        printf("error: elemen tidak ditemukan\n");
+        return;
+    }
+    printf("atomic number: %d\nsymbol: %s\nname: %s\nweight: %.2f\n", elem->atomic_number, elem->symbol, elem->name, elem->atomic_weight);
+    printf("period: %d, group: %d\n", elem->period, elem->group);
+    printf("electron configuration: %s\ncategory: %s\nelektronegativity:%.2f\noxidation states: %s\n",
+        elem->electron_config, elem->category, elem->electronegativity, elem->oxidation_states);
+}
