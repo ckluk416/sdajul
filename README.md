@@ -28,18 +28,18 @@ Repositori ini berisi program C untuk:
 
 ```mermaid
 flowchart TD
-    A([Start]) --> B[Inisialisasi: Baca tabel periodik, garam, Ka/Kb, stack, queue]
+    A([Start]) --> B[Inisialisasi: Baca data]
     B --> C{Menu Utama}
-    C -->|1. Tampilkan Tabel Periodik| D[Tampilkan seluruh unsur]
-    C -->|2. Tampilkan BST| E[Tampilkan tabel periodik (BST)]
-    C -->|3. Cari Unsur (No Atom)| F[Cari & tampilkan unsur berdasarkan nomor atom]
-    C -->|4. Cari Unsur (Simbol)| G[Cari & tampilkan unsur berdasarkan simbol]
-    C -->|5. Konfigurasi Elektron| H[Tampilkan konfigurasi elektron & visualisasi tree]
-    C -->|6. Daftar Garam & Hidrolisis| I[Tampilkan daftar garam & proses hidrolisis]
-    C -->|7. History Operasi| J[Tampilkan riwayat operasi (stack)]
-    C -->|8. Queue Proses| K[Tampilkan antrian proses (queue)]
-    C -->|9. Kalkulator Massa Molar| L[Hitung massa molar dua senyawa]
-    C -->|0. Keluar| M([Selesai])
+    C --> D[Tampilkan seluruh unsur]
+    C --> E[Tampilkan tabel periodik (BST)]
+    C --> F[Cari unsur berdasarkan nomor atom]
+    C --> G[Cari unsur berdasarkan simbol]
+    C --> H[Konfigurasi elektron & visualisasi tree]
+    C --> I[Daftar garam & proses hidrolisis]
+    C --> J[Riwayat operasi (stack)]
+    C --> K[Antrian proses (queue)]
+    C --> L[Kalkulator massa molar]
+    C --> M([Selesai])
     D --> C
     E --> C
     F --> C
