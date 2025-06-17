@@ -1,12 +1,6 @@
 #ifndef SALT_H
 #define SALT_H
 
-// Struct Ion for bedakan tipe ion
-typedef struct Ion {
-    char formula[10];
-    int charge;
-    char type; // 'K' untuk kation, 'A' untuk anion
-} Ion;
 
 // Struct salt for nyimpan informasi garam
 typedef struct Salt {
