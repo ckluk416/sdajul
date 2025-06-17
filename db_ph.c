@@ -38,3 +38,23 @@ int load_kakb_database(const char* filename, KaKbEntry* db, int* ndb) {
     *ndb = count;
     return 1;
 }
+
+// Lookup Ka/Kb berdasarkan tipe (Asam/Basa), formula, atau nama
+double lookup_kakb(const KaKbEntry* db, int ndb, const char* tipe, const char* formula, const char* nama) {
+    for (int i = 0; i < ndb; i++) {
+        // Perbandingan tipe (case-insensitive)
+        if (strcasecmp(db[i].tipe, tipe) != 0) continue;
+
+        // Hapus newline di formula database jika ada
+        char db_formula[32];
+        strncpy(db_formula, db[i].formula, sizeof(db_formula));
+        db_formula[sizeof(db_formula)-1] = 0;
+        db_formula[strcspn(db_formula, "\r\n")] = 0;
+
+        // Perbandingan formula/nama (case-insensitive)
+        if ((formula && strlen(formula) && strcasecmp(db_formula, formula) == 0) ||
+            (nama && strlen(nama) && strcasecmp(db[i].nama, nama) == 0))
+            return db[i].tetapan;
+    }
+    return 0.0;
+}

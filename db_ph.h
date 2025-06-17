@@ -11,5 +11,6 @@ typedef struct {
 } KaKbEntry;
 
 int load_kakb_database(const char* filename, KaKbEntry* db, int* ndb);
+double lookup_kakb(const KaKbEntry* db, int ndb, const char* tipe, const char* formula, const char* nama);
 
 #endif
