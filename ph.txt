@@ -1,0 +1,19 @@
+Asam,Asam Asetat,CH3COOH,1.8e-5
+Asam,Asam Sianida,HCN,4.9e-10
+Asam,Asam Formiat,HCOOH,1.8e-4
+Asam,Asam Hipoklorit,HClO,3.5e-8
+Asam,Asam Fluorida,HF,6.8e-4
+Asam,Asam Benzoat,C6H5COOH,6.4e-5
+Asam,Asam Sulfida,H2S,9.1e-8
+Asam,Asam Nitrit,HNO2,4.5e-4
+Asam,Asam Karbonat,H2CO3,4.3e-7
+Asam,Asam Fosfat,H3PO4,7.5e-3
+Basa,Amonia,NH3,1.8e-5
+Basa,Anilin,C6H5NH2,4.3e-10
+Basa,Metilamin,CH3NH2,4.4e-4
+Basa,Etilamin,C2H5NH2,5.6e-4
+Basa,Piridin,C5H5N,1.7e-9
+Basa,Hidrazin,N2H4,1.3e-6
+Basa,Dimetilamin,(CH3)2NH,5.4e-4
+Basa,Karbonat,CO3^2-,2.1e-4
+Basa,Asetat,CH3COO-,5.6e-10

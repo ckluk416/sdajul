@@ -8,9 +8,14 @@
 #include "stack.h"
 #include "queue.h"
 #include "electron_config.h"
+#include "hidrolisis.h"
+#include "db_ph.h"
 
 #define ELEMENT_FILE "tabel_periodik.txt"
 #define SALT_FILE "Daftar_Garam.txt"
+
+KaKbEntry kakb_db[MAX_DB_PH];
+int n_dbph = 0;
 
 int main(){
     // Data utama
@@ -29,6 +34,7 @@ int main(){
     init_periodic_table_from_file(periodic_table, &element_count, ELEMENT_FILE);
     build_periodic_tree(&periodic_tree, periodic_table, element_count);
     read_salts_from_file(&salt_list, SALT_FILE);
+    load_kakb_database("ph.txt", kakb_db, &n_dbph);
 
     int running = 1;
     while (running){
@@ -38,11 +44,10 @@ int main(){
         printf("3. Cari Elemen (No Atom)\n");
         printf("4. Cari Elemen (Simbol)\n");
         printf("5. Konfigurasi Elektron\n");
-        printf("6. Daftar Garam\n");
-        printf("7. Cari Garam\n");
-        printf("8. History Operasi\n");
-        printf("9. Queue Proses\n");
-        printf("10. Hitung Massa Atom Relatif\n");
+        printf("6. Daftar Garam & Hidrolisis (unstable)\n");
+        printf("7. History Operasi\n");
+        printf("8. Queue Proses\n");
+        printf("9. Hitung Massa Atom Relatif\n");
         printf("0. Keluar\n");
         printf("Pilih menu: ");
 
@@ -63,7 +68,6 @@ int main(){
             case 7:
             case 8:
             case 9:
-            case 10:
             case 0:
             default:
             
