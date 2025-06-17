@@ -58,4 +58,14 @@ void add_salt(Salt** salt_list, Salt* new_salt) {
     }
 }
 
+// Find Salt by name
+Salt* find_salt(Salt* salt_list, const char* name) {
+    Salt* current = salt_list;
+    while (current != NULL) {
+        if (strcmp(current->name, name) == 0) return current;
+        current = current->next;
+    }
+    return NULL;
+}
+
 
