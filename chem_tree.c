@@ -55,3 +55,12 @@ void inorder_traversal(TreeNode* root) {
         inorder_traversal(root->right);
     }
 }
+
+// Free tree nodes
+void free_tree(TreeNode* root) {
+    if (root) {
+        free_tree(root->left);
+        free_tree(root->right);
+        free(root);
+    }
+}
