@@ -79,3 +79,62 @@ void print_element(const Element *elem){
     printf("electron configuration: %s\ncategory: %s\nelektronegativity:%.2f\noxidation states: %s\n\n",
         elem->electron_config, elem->category, elem->electronegativity, elem->oxidation_states);
 }
+
+int parse_compound(const char* formula, Component* components) {
+    int comp_count = 0;
+    int i = 0;
+    int len = strlen(formula);
+    
+    while (i < len) {
+        // Skip whitespace
+        while (i < len && isspace(formula[i])) i++;
+        if (i >= len) break;
+        
+        // Baca simbol element (huruf kapital diikuti huruf kecil opsional)
+        char symbol[4] = {0};
+        int sym_idx = 0;
+        
+        if (isupper(formula[i])) {
+            symbol[sym_idx++] = formula[i++];
+            if (i < len && islower(formula[i])) {
+                symbol[sym_idx++] = formula[i++];
+            }
+            if (i < len && islower(formula[i])) {
+                symbol[sym_idx++] = formula[i++];
+            }
+        } else {
+            printf("Error: Invalid formula format at position %d\n", i);
+            return -1;
+        }
+        
+        // Baca angka (jumlah atom)
+        int count = 0;
+        if (i < len && isdigit(formula[i])) {
+            while (i < len && isdigit(formula[i])) {
+                count = count * 10 + (formula[i] - '0');
+                i++;
+            }
+        } else {
+            count = 1; // Default 1 jika tidak ada angka
+        }
+        
+        // Cek apakah symbol sudah ada dalam komponen
+        int found = 0;
+        for (int j = 0; j < comp_count; j++) {
+            if (strcmp(components[j].symbol, symbol) == 0) {
+                components[j].count += count;
+                found = 1;
+                break;
+            }
+        }
+        
+        // Jika belum ada, tambahkan komponen baru
+        if (!found) {
+            strcpy(components[comp_count].symbol, symbol);
+            components[comp_count].count = count;
+            comp_count++;
+        }
+    }
+    
+    return comp_count;
+}
