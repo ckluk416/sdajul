@@ -31,13 +31,13 @@ flowchart TD
     A([Start]) --> B[Inisialisasi: Baca data]
     B --> C{Menu Utama}
     C --> D[Tampilkan seluruh unsur]
-    C --> E[Tampilkan tabel periodik (BST)]
+    C --> E[Tampilkan tabel periodik BST]
     C --> F[Cari unsur berdasarkan nomor atom]
     C --> G[Cari unsur berdasarkan simbol]
     C --> H[Konfigurasi elektron & visualisasi tree]
     C --> I[Daftar garam & proses hidrolisis]
-    C --> J[Riwayat operasi (stack)]
-    C --> K[Antrian proses (queue)]
+    C --> J[Riwayat operasi stack]
+    C --> K[Antrian proses queue]
     C --> L[Kalkulator massa molar]
     C --> M([Selesai])
     D --> C
