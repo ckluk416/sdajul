@@ -32,7 +32,7 @@ OrbitalNode* build_electron_config(int atomic_number) {
         int electrons_in_orbital = electrons_left > max_e[i] ? max_e[i] : electrons_left;
         OrbitalNode* new_node = create_orbital_node(order[i], max_e[i], electrons_in_orbital, levels[i]);
         if (!root) root = new_node;
-        else last->right = new_node; // Linked list saja (linear, bukan tree)
+        else last->right = new_node; 
         last = new_node;
         electrons_left -= electrons_in_orbital;
     }
@@ -62,4 +62,19 @@ void print_orbital_tree(const OrbitalNode* root, const char* prefix, int is_last
         if (root->right)
             print_orbital_tree(root->right, new_prefix, ++child_index == child_count);
     }
+}
+
+// Tampilkan konfigurasi elektron (string)
+void display_electron_config(int atomic_number) {
+    const char* order[] = {"1s", "2s", "2p", "3s", "3p", "4s", "3d", "4p", "5s", "4d", "5p", "6s"};
+    const int max_e[] = {2, 2, 6, 2, 6, 2, 10, 6, 2, 10, 6, 2};
+    int electrons_left = atomic_number;
+    int orbital_count = sizeof(order) / sizeof(order[0]);
+    printf("Electron config: ");
+    for (int i = 0; i < orbital_count && electrons_left > 0; i++) {
+        int electrons_in_orbital = electrons_left > max_e[i] ? max_e[i] : electrons_left;
+        printf("%s^%d ", order[i], electrons_in_orbital);
+        electrons_left -= electrons_in_orbital;
+    }
+    printf("\n");
 }
