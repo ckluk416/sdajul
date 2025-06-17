@@ -1,8 +1,7 @@
 # Program Hidrolisis Garam
 ditujukan untuk memenuhi tugas mata kuliah struktur data dan algoritma
 
-```mermaid
-    flowchart TD
+flowchart TD
     A([Start]) --> B[Baca tabel_periodik.txt]
     B --> C[Muat data ke array (element.c)]
     C --> D[Tampilkan Menu Utama]
