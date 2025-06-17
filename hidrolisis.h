@@ -6,6 +6,6 @@
 #include "queue.h"
 #include "db_ph.h"
 
-
+void hidrolisis_interaktif(const Salt* salt_list, const char* nama_garam, Stack* history, Queue* q, const KaKbEntry* db, int ndb);
 
 #endif
