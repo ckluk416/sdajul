@@ -13,7 +13,7 @@ int is_strong_acid_anion(const char* an) {
 }
 
 // Hidrolisis interaktif dengan database Ka/Kb lookup
-void hidrolisis_interaktif(const Salt* salt_list, const char* nama_garam, Stack* history, Queue* q, const KaKbEntry* db, int ndb) {
+void hidrolisis_process(const Salt* salt_list, const char* nama_garam, Stack* history, Queue* q, const KaKbEntry* db, int ndb) {
     const Salt* s = salt_list;
     while (s) {
         if (strcmp(s->name, nama_garam) == 0)
