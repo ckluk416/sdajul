@@ -56,6 +56,13 @@ void inorder_traversal(TreeNode* root) {
     }
 }
 
+void print_tree_table(TreeNode* root) {
+    printf("\n=== PERIODIC TABLE (BST Inorder) ===\n");
+    printf("Num | Sym | Name        | Weight   | Period | Group\n");
+    printf("----|-----|-------------|----------|--------|------\n");
+    inorder_traversal(root);
+}
+
 // Free tree nodes
 void free_tree(TreeNode* root) {
     if (root) {

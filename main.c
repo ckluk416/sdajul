@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "element.h"
-#include "bst.h"
+#include "chem_tree.h"
 #include "salt.h"
 #include "stack.h"
 #include "queue.h"
