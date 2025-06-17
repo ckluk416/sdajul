@@ -24,7 +24,7 @@ typedef struct {
 
 //modul
 void init_periodic_table_from_file(Element* table, int* count, const char* filename); //untuk inisasialisasi tabel periodik dari file
-Element* search_by_symbol(Element* table, int count, char* symbol); //untuk menari elemen berdasarkan simbol
+Element* search_by_symbol(Element* table, int count, const char* symbol); //untuk menari elemen berdasarkan simbol
 void print_element(const Element* elem); //untuk mencetak info elemen
 
 // Prototipe fungsi untuk perhitungan massa molar

@@ -17,5 +17,6 @@ Element* search_element(TreeNode* root, int atomic_number);
 void build_periodic_tree(TreeNode** root, Element* table, int count);
 void inorder_traversal(TreeNode* root);
 void free_tree(TreeNode* root);
+void print_tree_table(TreeNode* root);
 
 #endif

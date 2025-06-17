@@ -1,11 +1,12 @@
 #include "element.h"
+#include <ctype.h> 
 
 void init_periodic_table_from_file(Element *table, int *count, const char *filename){
     FILE *file = fopen(filename, "r");
     if(!file){
         printf("error: tidak dapat membuka file %s\n", filename);
         *count = 0;
-        return
+        return; 
     }
     char line[256];
     *count = 0;
@@ -22,7 +23,8 @@ void init_periodic_table_from_file(Element *table, int *count, const char *filen
 
         token = strtok(NULL, "|");
         if(!token) continue;
-        strncpy(elem.name, token, sizeof(elem.symbol) - 1);
+        strncpy(elem.name, token, sizeof(elem.name) - 1);
+        elem.name[sizeof(elem.name) - 1] = '\0';
 
         token = strtok(NULL, "|");
         if(!token) continue;
@@ -58,7 +60,7 @@ void init_periodic_table_from_file(Element *table, int *count, const char *filen
     fclose(file);
 }
 
-void search_by_symbol(Element *table, int count, const char *symbol){
+Element* search_by_symbol(Element *table, int count, const char *symbol){ 
     for(int i = 0; i < count; i++){
         if(strcmp(table[i].symbol, symbol) == 0){  
             return &table[i];

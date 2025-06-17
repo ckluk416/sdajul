@@ -1,4 +1,4 @@
-#ifndef ELECTRON_CONFIG.H
+#ifndef ELECTRON_CONFIG_H
 #define ELECTRON_CONFIG_H
 
 typedef struct OrbitalNode {
@@ -12,7 +12,7 @@ typedef struct OrbitalNode {
 
 // Function prototypes interface
 OrbitalNode* create_orbital_node(const char* name, int max_e, int current_e, int energy);
-void print_orbital_tree(OrbitalNode* root, const char* prefix, int is_last);
+void print_orbital_tree(const OrbitalNode* root, const char* prefix, int is_last);
 OrbitalNode* build_electron_config(int atomic_number);
 void display_electron_config(int atomic_number);
 void free_orbital_tree(OrbitalNode* root);

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <ctype.h> 
 #include "hidrolisis.h"
 
 // Anda boleh perluas detection ini sesuai database Anda
