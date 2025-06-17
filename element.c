@@ -54,6 +54,15 @@ void init_periodic_table_from_file(Element *table, int *count, const char *filen
     fclose(file);
 }
 
+void search_by_symbol(Element *table, int count, const char *symbol){
+    for(int i = 0; i < count; i++){
+        if(strcmp(table[i].symbol, symbol) == 0){  
+            return &table[i];
+        }
+    }
+    return NULL;
+}
+
 void print_element(const Element *elem){
     if(!elem){
         printf("error: elemen tidak ditemukan\n");
