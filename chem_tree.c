@@ -40,3 +40,18 @@ void build_periodic_tree(TreeNode** root, Element* table, int count) {
         *root = insert_to_tree(*root, table[i]);
     }
 }
+
+// Process inorder to print sorted tree
+void inorder_traversal(TreeNode* root) {
+    if (root != NULL) {
+        inorder_traversal(root->left);
+        printf("%3d | %-3s | %-11s | %8.3f | %6d | %5d\n",
+               root->data.atomic_number,
+               root->data.symbol,
+               root->data.name,
+               root->data.atomic_weight,
+               root->data.period,
+               root->data.group);
+        inorder_traversal(root->right);
+    }
+}
