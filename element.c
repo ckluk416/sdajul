@@ -138,3 +138,62 @@ int parse_compound(const char* formula, Component* components) {
     
     return comp_count;
 }
+
+// Fungsi untuk menghitung massa molar
+float calculate_molar_mass(Element* table, int table_count, const char* formula) {
+    Component components[50];
+    int comp_count = parse_compound(formula, components);
+    
+    if (comp_count == -1) {
+        return -1.0f; // Error dalam parsing
+    }
+    
+    float total_mass = 0.0f;
+    
+    printf("\nKomponen senyawa %s:\n", formula);
+    printf("%-8s %-15s %-10s %-15s %-15s\n", "Symbol", "Nama", "Jumlah", "Massa Atom", "Massa Total");
+    printf("----------------------------------------------------------------\n");
+    
+    for (int i = 0; i < comp_count; i++) {
+        Element* elem = search_by_symbol(table, table_count, components[i].symbol);
+        if (!elem) {
+            printf("Error: Element '%s' tidak ditemukan dalam tabel periodik!\n", components[i].symbol);
+            return -1.0f;
+        }
+        
+        float component_mass = elem->atomic_weight * components[i].count;
+        total_mass += component_mass;
+        
+        printf("%-8s %-15s %-10d %-15.3f %-15.3f\n", 
+               elem->symbol, elem->name, components[i].count, 
+               elem->atomic_weight, component_mass);
+    }
+    
+    printf("----------------------------------------------------------------\n");
+    printf("Total massa molar: %.3f g/mol\n", total_mass);
+    
+    return total_mass;
+}
+
+// Fungsi untuk menghitung massa total dari dua senyawa
+void calculate_total_mass(Element* table, int table_count, const char* compound1, const char* compound2) {
+    printf("=== PERHITUNGAN MASSA MOLAR RELATIF ===\n\n");
+    
+    printf("Senyawa 1: %s\n", compound1);
+    float mass1 = calculate_molar_mass(table, table_count, compound1);
+    
+    if (mass1 < 0) return;
+    
+    printf("\n==================================================\n\n");
+    
+    printf("Senyawa 2: %s\n", compound2);
+    float mass2 = calculate_molar_mass(table, table_count, compound2);
+    
+    if (mass2 < 0) return;
+    
+    printf("\n==================================================\n");
+    printf("RINGKASAN:\n");
+    printf("Massa molar %s: %.3f g/mol\n", compound1, mass1);
+    printf("Massa molar %s: %.3f g/mol\n", compound2, mass2);
+    printf("Total massa molar: %.3f g/mol\n", mass1 + mass2);
+}

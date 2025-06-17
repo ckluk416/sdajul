@@ -42,6 +42,7 @@ int main(){
         printf("7. Cari Garam\n");
         printf("8. History Operasi\n");
         printf("9. Queue Proses\n");
+        printf("10. Hitung Massa Atom Relatif\n");
         printf("0. Keluar\n");
         printf("Pilih menu: ");
 
@@ -62,6 +63,7 @@ int main(){
             case 7:
             case 8:
             case 9:
+            case 10:
             case 0:
             default:
             
