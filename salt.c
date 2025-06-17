@@ -68,4 +68,13 @@ Salt* find_salt(Salt* salt_list, const char* name) {
     return NULL;
 }
 
+// Free salt list
+void free_salt_list(Salt* salt_list) {
+    while (salt_list) {
+        Salt* tmp = salt_list;
+        salt_list = salt_list->next;
+        free(tmp);
+    }
+}
+
 
