@@ -15,5 +15,6 @@ OrbitalNode* create_orbital_node(const char* name, int max_e, int current_e, int
 void print_orbital_tree(OrbitalNode* root, const char* prefix, int is_last);
 OrbitalNode* build_electron_config(int atomic_number);
 void display_electron_config(int atomic_number);
+void free_orbital_tree(OrbitalNode* root);
 
 #endif
