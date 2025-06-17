@@ -42,3 +42,11 @@ void print_orbital_tree(const OrbitalNode* root, const char* prefix, int is_last
             print_orbital_tree(root->right, new_prefix, ++child_index == child_count);
     }
 }
+
+void free_orbital_tree(OrbitalNode* root) {
+    while (root) {
+        OrbitalNode* tmp = root;
+        root = root->right;
+        free(tmp);
+    }
+}
