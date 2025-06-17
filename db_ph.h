@@ -10,5 +10,6 @@ typedef struct {
     double tetapan;    // Ka atau Kb
 } KaKbEntry;
 
+int load_kakb_database(const char* filename, KaKbEntry* db, int* ndb);
 
 #endif
