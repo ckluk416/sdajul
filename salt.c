@@ -77,6 +77,50 @@ void print_salts(Salt* salt_list) {
     }
 }
 
+// Read salts from file
+void read_salts_from_file(Salt** salt_list, const char* filename) {
+    FILE* file = fopen(filename, "r");
+    if (!file) {
+        printf("Error: Cannot open file %s\n", filename);
+        return;
+    }
+    char line[256];
+    while (fgets(line, sizeof(line), file)) {
+        line[strcspn(line, "\n")] = '\0';
+        char salt_name[30] = "", cation_formula[10] = "", anion_formula[10] = "";
+        int cation_charge = 0, anion_charge = 0;
+        char* token = strtok(line, "|");
+        if (!token) continue;
+        strncpy(salt_name, token, sizeof(salt_name) - 1);
+
+        token = strtok(NULL, "|");
+        if (!token) continue;
+        strncpy(cation_formula, token, sizeof(cation_formula) - 1);
+
+        token = strtok(NULL, "|"); // cation name, skip
+        token = strtok(NULL, "|");
+        if (!token) continue;
+        cation_charge = atoi(token);
+
+        token = strtok(NULL, "|"); // cation type, skip
+        token = strtok(NULL, "|"); // cation property, skip
+
+        token = strtok(NULL, "|");
+        if (!token) continue;
+        strncpy(anion_formula, token, sizeof(anion_formula) - 1);
+
+        token = strtok(NULL, "|"); // anion name, skip
+        token = strtok(NULL, "|");
+        if (!token) continue;
+        anion_charge = atoi(token);
+
+        // create and add
+        Salt* new_salt = create_salt(salt_name, cation_formula, cation_charge, anion_formula, anion_charge);
+        add_salt(salt_list, new_salt);
+    }
+    fclose(file);
+}
+
 // Free salt list
 void free_salt_list(Salt* salt_list) {
     while (salt_list) {
