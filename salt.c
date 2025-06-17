@@ -68,6 +68,15 @@ Salt* find_salt(Salt* salt_list, const char* name) {
     return NULL;
 }
 
+void print_salts(Salt* salt_list) {
+    Salt* current = salt_list;
+    printf("\n=== Daftar Garam ===\n");
+    while (current) {
+        printf("%s: %s + %s => %s\n", current->name, current->cation.formula, current->anion.formula, current->formula);
+        current = current->next;
+    }
+}
+
 // Free salt list
 void free_salt_list(Salt* salt_list) {
     while (salt_list) {
