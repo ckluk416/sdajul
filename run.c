@@ -138,11 +138,11 @@ int run_program() {
         case 9: {
             char compound1[100], compound2[100];
             printf("=== KALKULATOR MASSA MOLAR RELATIF ===\n");
-            printf("Masukkan senyawa pertama: ");
+            printf("Masukkan simbol senyawa pertama: ");
             if (!fgets(compound1, sizeof(compound1), stdin)) break;
             compound1[strcspn(compound1, "\n")] = '\0';
 
-            printf("Masukkan senyawa kedua: ");
+            printf("Masukkan simbol senyawa kedua: ");
             if (!fgets(compound2, sizeof(compound2), stdin)) break;
             compound2[strcspn(compound2, "\n")] = '\0';
 
